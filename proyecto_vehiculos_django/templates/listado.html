@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+        <h1 class='text-center mt-3'>LISTADO DE VEHICULOS</h1>
+        {% if user.is_authenticated %}
+        <table class="table table-striped">
+            <thead>
+            <tr class='text-center'>
+                <th scope="col">#</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Serial carroceria</th>
+                <th scope="col">Serial motor</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Condicion de precio</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+            <tr class='text-center'>
+                <th scope="row">{{d.id}}</th>
+                <td>{{d.marca}}</td>
+                <td>{{d.modelo}}</td>
+                <td>{{d.serial_carroceria}}</td>
+                <td>{{d.serial_motor}}</td>
+                <td>{{d.categoria}}</td>
+                <td>{{d.precio}}</td>
+                <td>{{d.validacion}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <h2 >Para ver el listado debe registrarse</h2>
+    {% endif %}
+{% endblock 'content' %}

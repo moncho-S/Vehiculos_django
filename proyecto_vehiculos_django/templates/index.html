@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block 'titulo' %}
+Pagina principal
+{% endblock 'titulo' %}
+
+{% block 'content' %}
+{% if perms.vehiculo.visualizar_catalogo %}
+<h1 class='text-center'> Catalogo de vehiculos</h1>
+{% else %}
+<h2 class='text-center'>Para ver el index debe tener el permiso 'visualizar_catalogo'</h2>
+{% endif %}
+{% if not user.is_authenticated %}
+<span style='background-color:yellow'>superuser: admin<br>
+password: 123456</span>
+{% endif %}
+{% endblock %}

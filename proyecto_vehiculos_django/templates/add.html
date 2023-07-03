@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+Agregar vehiculos
+{% endblock 'title' %}
+
+{% block 'content' %}
+    <h1 class='text-center my-3'>Agregar vehiculos</h1>
+    {% if perms.vehiculo.visualizar_catalogo and perms.vehiculo.add_vehiculomodel %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class='text-center'>
+            {{form.as_p}}
+            <input type="submit" class='btn btn-primary' value="Enviar">
+    </div>
+    </form>
+    {% else  %}
+    <h3 class='text-center'>Para ver el index debe tener el permiso 'visualizar_catalogo' y 'add_vehiculomodel'</h3>
+    {% endif  %}
+{% endblock 'content' %}
