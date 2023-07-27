@@ -24,4 +24,4 @@ class VehiculoModel(models.Model):
     modificado=models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return self.titulo
+        return self.modelo
